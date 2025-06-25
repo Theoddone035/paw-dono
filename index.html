@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paws Haven - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Welcome to Paws Haven</h1>
+    <form id="login-form">
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+</form>
+    <script src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+<script>
+    const firebaseConfig = {apiKey: "AIzaSyCZJwgnqiD2g10bmMFiCQ-jJgwDKgveCaY",
+  authDomain: "pawshaven-035.firebaseapp.com",
+  projectId: "pawshaven-035",
+  storageBucket: "pawshaven-035.firebasestorage.app",
+  messagingSenderId: "34015718343",
+  appId: "1:34015718343:web:64c7b2478e0527809247e2",
+  measurementId: "G-NB0M1CDJB7"};
+    firebase.initializeApp(firebaseConfig);
+</script>
+</body>
+</html>
