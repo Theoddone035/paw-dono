@@ -4,15 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paws Haven - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1>Paws Haven Home</h1>
-    <form id="donation-form">
-        <label for="amount">Donation Amount ($)</label>
-        <input type="number" id="amount" required>
-        <button type="submit">Submit</button>
-    </form>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-blue-800 text-xl font-bold">Paws Haven</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="text-blue-800 hover:text-blue-600" onclick="showPage('donation')">Donation</a>
+                <a href="#" class="text-blue-800 hover:text-blue-600" onclick="showPage('stories')">Stories</a>
+                <a href="#" class="text-blue-800 hover:text-blue-600" onclick="showPage('testimonials')">Testimonials</a>
+                <button id="logout-button" class="text-blue-800 hover:text-blue-600">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <!-- Donation Section -->
+        <div id="donation-section" class="mb-8">
+            <h2 class="text-2xl font-bold text-blue-800 mb-4">Support Our Dogs</h2>
+            <form id="donation-form" class="space-y-4 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold">Select Donation Amount</h3>
+                <label class="block"><input type="radio" name="amount" value="50" class="mr-2" required>$50 - Feeds a dog for a week</label>
+                <label class="block"><input type="radio" name="amount" value="100" class="mr-2">$100 - Provides a blanket</label>
+                <label class="block"><input type="radio" name="amount" value="200" class="mr-2">$200 - Funds medical checkup</label>
+                <label class="block"><input type="radio" name="amount" value="custom" class="mr-2">Custom Amount</label>
+                <input type="number" id="custom-amount" placeholder="Enter amount ($)" disabled class="w-full px-3 py-2 border rounded-md">
+                <h3 class="text-lg font-semibold mt-4">Extras for Dogs</h3>
+                <label class="block"><input type="checkbox" name="extras" value="chew-toy" class="mr-2">Chew Toy - $10</label>
+                <label class="block"><input type="checkbox" name="extras" value="squeaky-toy" class="mr-2">Squeaky Toy - $15</label>
+                <label class="block"><input type="checkbox" name="extras" value="treats" class="mr-2">Treats - $5</label>
+                <label class="block"><input type="checkbox" name="extras" value="bed" class="mr-2">Cozy Bed - $30</label>
+                <label class="block"><input type="checkbox" name="extras" value="bowl" class="mr-2">Food Bowl - $20</label>
+                <button type="submit" class="w-full py-2 px-4 text-white bg-blue-600 rounded hover:bg-blue-700">Submit Donation Intent</button>
+            </form>
+        </div>
+        <!-- Stories Section -->
+        <div id="stories-section" class="hidden mb-8">
+            <h2 class="text-2xl font-bold text-blue-800 mb-4">Our Dogs' Stories</h2>
+            <div id="stories" class="space-y-6">
+                <!-- Story 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-blue-800">Max’s Rescue</h3>
+                    <p class="text-gray-700 mt-2">Max was found shivering in an alley, abandoned and thin. With supporter help, he’s now wagging his tail in a warm foster home, waiting for his forever family.</p>
+                    <img src="images/max.jpg" alt="Max" class="mt-4 w-full h-48 object-cover rounded-md">
+                </div>
+                <!-- Story 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-blue-800">Luna’s Recovery</h3>
+                    <p class="text-gray-700 mt-2">Luna arrived with a broken leg, barely able to walk. Donations funded her surgery, and today she runs happily, chasing her dreams of a loving home.</p>
+                    <img src="images/luna.jpg" alt="Luna" class="mt-4 w-full h-48 object-cover rounded-md">
+                </div>
+            </div>
+        </div>
+        <!-- Testimonials Section -->
+        <div id="testimonials-section" class="hidden">
+            <h2 class="text-2xl font-bold text-blue-800 mb-4">What Supporters Say</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-gray-700 italic">"I love knowing I helped a dog find joy."</p>
+                    <p class="text-blue-800 font-semibold mt-2">– Emily, Supporter</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-gray-700 italic">"The stories here inspired me to give."</p>
+                    <p class="text-blue-800 font-semibold mt-2">– Mark, Volunteer</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

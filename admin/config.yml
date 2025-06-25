@@ -1,7 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Theoddone035/paw-dono
   branch: main
-media_folder: "images"
+media_folder: "/images"
+public_folder: "/images"
 collections:
   - name: "stories"
     label: "Stories"
